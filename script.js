@@ -32,6 +32,7 @@ const songs = [
 
 const playBtn = document.getElementById("playBtn");
 const nextBtn = document.getElementById("nextBtn");
+
 const songTitle = document.getElementById("songTitle");
 const artistName = document.getElementById("artistName");
 const albumArt = document.getElementById("albumArt");
@@ -43,9 +44,9 @@ const totalTime = document.getElementById("totalTime");
 const visualizer = document.querySelector(".visualizer");
 
 
-/* =========================
+/* =================================
    YOUTUBE PLAYER
-========================= */
+================================= */
 
 function onYouTubeIframeAPIReady() {
 
@@ -67,32 +68,36 @@ function onYouTubeIframeAPIReady() {
             onReady: onPlayerReady,
             onStateChange: onPlayerStateChange
         }
+
     });
 }
 
 
-function onPlayerReady(event) {
+/* =================================
+   PLAYER READY
+================================= */
+
+function onPlayerReady() {
 
     isReady = true;
 
-    console.log("YouTube player is READY");
-
     updateSong();
 
-    totalTime.textContent =
-        formatTime(player.getDuration());
+    updateDuration();
+
 }
 
 
-/* =========================
-   SONG INFORMATION
-========================= */
+/* =================================
+   UPDATE SONG INFORMATION
+================================= */
 
 function updateSong() {
 
     const song = songs[currentSong];
 
     songTitle.textContent = song.title;
+
     artistName.textContent = song.artist;
 
     albumArt.src =
@@ -100,40 +105,38 @@ function updateSong() {
         song.id +
         "/hqdefault.jpg";
 
-    progressBar.value = 0;
-    currentTime.textContent = "0:00";
-
-    setTimeout(() => {
-
-        if (player && player.getDuration) {
-
-            totalTime.textContent =
-                formatTime(player.getDuration());
-
-        }
-
-    }, 500);
 }
 
 
-/* =========================
-   PLAY / PAUSE
-========================= */
+/* =================================
+   UPDATE DURATION
+================================= */
 
-playBtn.addEventListener("click", () => {
+function updateDuration() {
 
-    console.log("PLAY BUTTON CLICKED");
+    if (!player || !isReady) return;
 
-    if (!isReady) {
+    const duration = player.getDuration();
 
-        console.log("YouTube player is NOT ready");
+    if (duration > 0) {
 
-        return;
+        totalTime.textContent =
+            formatTime(duration);
+
     }
 
-    const state = player.getPlayerState();
+}
 
-    console.log("Player state:", state);
+
+/* =================================
+   PLAY / PAUSE
+================================= */
+
+playBtn.addEventListener("click", function () {
+
+    if (!player || !isReady) return;
+
+    const state = player.getPlayerState();
 
     if (state === YT.PlayerState.PLAYING) {
 
@@ -148,11 +151,11 @@ playBtn.addEventListener("click", () => {
 });
 
 
-/* =========================
-   NEXT
-========================= */
+/* =================================
+   NEXT SONG
+================================= */
 
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click", function () {
 
     nextSong();
 
@@ -164,7 +167,9 @@ function nextSong() {
     currentSong++;
 
     if (currentSong >= songs.length) {
+
         currentSong = 0;
+
     }
 
     player.loadVideoById(
@@ -172,23 +177,27 @@ function nextSong() {
     );
 
     updateSong();
+
+    progressBar.value = 0;
+
+    currentTime.textContent = "0:00";
+
 }
 
 
-/* =========================
-   YOUTUBE STATE
-========================= */
+/* =================================
+   YOUTUBE PLAYER STATE
+================================= */
 
 function onPlayerStateChange(event) {
 
-    if (
-        event.data ===
-        YT.PlayerState.PLAYING
-    ) {
+    if (event.data === YT.PlayerState.PLAYING) {
 
         playBtn.textContent = "❚❚";
 
         visualizer.classList.add("playing");
+
+        updateDuration();
 
     }
 
@@ -201,58 +210,55 @@ function onPlayerStateChange(event) {
     }
 
 
-    if (
-        event.data ===
-        YT.PlayerState.ENDED
-    ) {
+    if (event.data === YT.PlayerState.ENDED) {
 
         nextSong();
 
     }
+
 }
 
 
-/* =========================
-   PROGRESS UPDATE
-========================= */
+/* =================================
+   UPDATE PROGRESS EVERY 500ms
+================================= */
 
-setInterval(() => {
+setInterval(function () {
 
-    if (
-        player &&
-        isReady &&
-        player.getCurrentTime
-    ) {
+    if (!player || !isReady) return;
 
-        const duration =
-            player.getDuration();
+    const duration =
+        player.getDuration();
 
-        const current =
-            player.getCurrentTime();
+    const current =
+        player.getCurrentTime();
 
-        if (duration > 0) {
+    if (duration > 0) {
 
-            progressBar.value =
-                (current / duration) * 100;
+        const percentage =
+            (current / duration) * 100;
 
-            currentTime.textContent =
-                formatTime(current);
+        progressBar.value =
+            percentage;
 
-            totalTime.textContent =
-                formatTime(duration);
-        }
+        currentTime.textContent =
+            formatTime(current);
+
+        totalTime.textContent =
+            formatTime(duration);
+
     }
 
 }, 500);
 
 
-/* =========================
-   SEEK
-========================= */
+/* =================================
+   DRAG / SEEK PROGRESS BAR
+================================= */
 
 progressBar.addEventListener(
     "input",
-    () => {
+    function () {
 
         if (!player || !isReady) return;
 
@@ -268,18 +274,23 @@ progressBar.addEventListener(
             true
         );
 
+        currentTime.textContent =
+            formatTime(newTime);
+
     }
 );
 
 
-/* =========================
-   TIME FORMAT
-========================= */
+/* =================================
+   FORMAT TIME
+================================= */
 
 function formatTime(seconds) {
 
     if (!seconds || isNaN(seconds)) {
+
         return "0:00";
+
     }
 
     const minutes =
@@ -293,4 +304,5 @@ function formatTime(seconds) {
         ":" +
         secs.toString().padStart(2, "0")
     );
+
 }
