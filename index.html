@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>90s Rain</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- ============================= -->
+    <!-- HERO / MUSIC SECTION -->
+    <!-- ============================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Retro 'इश्क़ </h1>
+
+            <p class="subtitle">
+                Revisiting love with  90s.
+            </p>
+
+        </div>
+
+
+        <!-- MUSIC PLAYER WILL GO HERE -->
+       <div class="music-player">
+
+    <div class="song-details">
+
+        <img id="albumArt" src="" alt="Album Art">
+
+        <div class="song-text">
+
+            <div class="now-playing">
+                NOW PLAYING
+            </div>
+
+            <div id="songTitle">
+                Dekha Ek Khwab
+            </div>
+
+            <div id="artistName">
+                Kishore Kumar & Lata Mangeshkar
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Beat visualizer -->
+
+    <div class="visualizer">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+
+    <div class="player-controls">
+
+        <button id="playBtn">▶</button>
+
+        <button id="nextBtn">⏭</button>
+
+    </div>
+
+
+    <!-- Progress -->
+
+    <div class="progress-container">
+
+        <span id="currentTime">
+            0:00
+        </span>
+
+        <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            value="0"
+        >
+
+        <span id="totalTime">
+            0:00
+        </span>
+
+    </div>
+
+</div>
+
+
+<div id="youtube-player"></div>
+
+
+<!-- Hidden YouTube player -->
+
+<div id="youtube-player"></div>
+
+
+        <div class="scroll-hint">
+
+            <span>SCROLL DOWN</span>
+
+            <div class="arrow">↓</div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- STORY / BIBLIOGRAPHY SECTION -->
+    <!-- ============================= -->
+
+    <section class="story">
+
+        <div class="story-content">
+
+            <p class="section-label">
+                A LITTLE STORY
+            </p>
+
+            <h2>
+                Some memories sound like rain.
+            </h2>
+
+            <p>
+                This space is dedicated to the songs,
+                moments and memories that never really
+                grow old.
+            </p>
+
+            <p>
+                love By TANISHK.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- MORE ABOUT YOU -->
+    <!-- ============================= -->
+
+    <section class="about">
+
+        <div class="about-content">
+
+            <p class="section-label">
+                MY JOURNEY
+            </p>
+
+            <h2>
+                A collection of moments.
+            </h2>
+
+            <p>
+                Write your biography, personal journey,
+                memories, thoughts or anything else
+                you want to share here.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ============================= -->
+    <!-- THANK YOU SECTION -->
+    <!-- ============================= -->
+
+    <section class="thank-you">
+
+        <div class="thank-you-content">
+
+            <h2>
+                Thank You
+            </h2>
+
+            <p>
+                Thank you for spending a little time here.
+            </p>
+
+            <p>
+                Put on your headphones.<br>
+                Let the rain fall.<br>
+                And let the music play.
+            </p>
+
+        </div>
+
+    </section>
+
+   <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
