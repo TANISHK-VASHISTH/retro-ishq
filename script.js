@@ -3,6 +3,71 @@ let currentSong = 0;
 let isReady = false;
 
 const songs = [
+
+
+
+    {
+        id: "2Vv-BfVoq4g",
+        title: "Pehla Nasha",
+        artist: "Udit Narayan & Sadhana Sargam"
+    },
+
+    {
+        id: "JGwWNGJdvx8",
+        title: "Tum Mile",
+        artist: "Kumar Sanu"
+    },
+
+    {
+        id: "450p7goxZqg",
+        title: "Tu Hi Meri Shab Hai",
+        artist: "KK"
+    },
+
+    {
+        id: "RgKAFK5djSk",
+        title: "Aankhon Se Tune Kya Keh Diya",
+        artist: "Kumar Sanu & Alka Yagnik"
+    },
+
+    {
+        id: "YQHsXMglC9A",
+        title: "Tujhe Dekha To",
+        artist: "Kumar Sanu & Lata Mangeshkar"
+    },
+
+    {
+        id: "fRh_vgS2dFE",
+        title: "Mera Dil Bhi Kitna Pagal Hai",
+        artist: "Kumar Sanu & Alka Yagnik"
+    },
+
+    {
+        id: "OPf0YbXqDm0",
+        title: "Do Dil Mil Rahe Hain",
+        artist: "Kumar Sanu"
+    },
+
+    {
+        id: "kJQP7kiw5Fk",
+        title: "Bahut Pyar Karte Hain",
+        artist: "Anuradha Paudwal"
+    },
+
+    {
+        id: "RgKAFK5djSk",
+        title: "Dheere Dheere Se Meri Zindagi",
+        artist: "Kumar Sanu & Anuradha Paudwal"
+    },
+
+    {
+        id: "09R8_2nJtjg",
+        title: "Humko Sirf Tumse Pyaar Hai",
+        artist: "Kumar Sanu & Alka Yagnik"
+    },
+
+
+    
     {
         id: "7dO_MS9tZ5E",
         title: "Dekha Ek Khwab",
