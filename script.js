@@ -6,67 +6,47 @@ const songs = [
 
 
 
-    {
-        id: "2Vv-BfVoq4g",
-        title: "Pehla Nasha",
-        artist: "Udit Narayan & Sadhana Sargam"
-    },
+   {
+    id: "eM8Mjuq4MwQ",
+    title: "Song 1",
+    artist: "Artist"
+},
 
-    {
-        id: "JGwWNGJdvx8",
-        title: "Tum Mile",
-        artist: "Kumar Sanu"
-    },
+{
+    id: "lFdSi01tpYM",
+    title: "Song 2",
+    artist: "Artist"
+},
 
-    {
-        id: "450p7goxZqg",
-        title: "Tu Hi Meri Shab Hai",
-        artist: "KK"
-    },
+{
+    id: "ixCnsZswdpU",
+    title: "Aaye Ho Meri Zindagi Mein",
+    artist: "Udit Narayan"
+},
 
-    {
-        id: "RgKAFK5djSk",
-        title: "Aankhon Se Tune Kya Keh Diya",
-        artist: "Kumar Sanu & Alka Yagnik"
-    },
+{
+    id: "sWqjZpBtcxc",
+    title: "Aye Mere Humsafar",
+    artist: "Udit Narayan & Alka Yagnik"
+},
 
-    {
-        id: "YQHsXMglC9A",
-        title: "Tujhe Dekha To",
-        artist: "Kumar Sanu & Lata Mangeshkar"
-    },
+{
+    id: "vHg9WMmSfZ4",
+    title: "Song 5",
+    artist: "Artist"
+},
 
-    {
-        id: "fRh_vgS2dFE",
-        title: "Mera Dil Bhi Kitna Pagal Hai",
-        artist: "Kumar Sanu & Alka Yagnik"
-    },
+{
+    id: "gKyUhjoto9o",
+    title: "Song 6",
+    artist: "Artist"
+},
 
-    {
-        id: "OPf0YbXqDm0",
-        title: "Do Dil Mil Rahe Hain",
-        artist: "Kumar Sanu"
-    },
-
-    {
-        id: "kJQP7kiw5Fk",
-        title: "Bahut Pyar Karte Hain",
-        artist: "Anuradha Paudwal"
-    },
-
-    {
-        id: "RgKAFK5djSk",
-        title: "Dheere Dheere Se Meri Zindagi",
-        artist: "Kumar Sanu & Anuradha Paudwal"
-    },
-
-    {
-        id: "09R8_2nJtjg",
-        title: "Humko Sirf Tumse Pyaar Hai",
-        artist: "Kumar Sanu & Alka Yagnik"
-    },
-
-
+{
+    id: "kqXs4GGp8bw",
+    title: "Song 7",
+    artist: "Artist"
+},
     
     {
         id: "7dO_MS9tZ5E",
